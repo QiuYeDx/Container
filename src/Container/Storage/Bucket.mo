@@ -30,6 +30,9 @@ shared({caller}) actor class Bucket() = this{
 
     };
 
+    public query func wallet_
+
+    
 
 
 
