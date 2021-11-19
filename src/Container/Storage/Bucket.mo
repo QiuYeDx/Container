@@ -7,9 +7,13 @@ import Result "mo:base/Result";
 import Prim "mo:⛔";
 import Types "../Module/Types";
 import Iter "mo:base/Iter";
+import Text "mo:base/Text";
 import TrieSet "mo:base/TrieSet";
+import Principal "mo:base/Principal";
 
 shared({caller}) actor class Bucket(init_owner_ : [Principal]) = this{
+    private stable var mapEntries : [var Text] = [var ];
+    private stable var ownersArray : [var Principal] = [var ];
 
     private type Asset = Types.Asset;
     private type AssetExt = Types.AssetExt;
@@ -52,7 +56,7 @@ shared({caller}) actor class Bucket(init_owner_ : [Principal]) = this{
             let osz = switch(map.get(key)) {
                 case null { 0 };
                 case (?Asset) { Asset.total_size };
-            }
+            };
             let new_dt = Array.append<Blob>(pre, dt);
             let new_size = sz + osz;
             let nAs = asset(new_dt, new_size, tp);
