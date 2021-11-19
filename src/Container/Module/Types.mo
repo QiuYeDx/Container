@@ -1,6 +1,11 @@
+import Text "mo:base/Text";
+import Blob "mo:base/Blob";
+import Principal "mo:base/Principal";
+import Nat "mo:base/Nat";
+
 module{
     public type Asset = {
-        data : Blob;
+        data : [Blob];
         total_size : Nat;
         extension : FileExtension;
     };
