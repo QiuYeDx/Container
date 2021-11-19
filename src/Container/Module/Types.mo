@@ -1,5 +1,4 @@
 module{
-
     public type Asset = {
         data : Blob;
         total_size : Nat;
